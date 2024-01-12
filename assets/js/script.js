@@ -18,11 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function validateExpenseInput() {
   if (expenseInput.value.trim() === '') {
     errorMessage.textContent = 'Expense input cannot be empty.'
+    errorMessage.setAttribute('class', 'error-message')
     return false;
   }
 
   if (expenseDate.value === '') {
     errorMessage.textContent = 'Expense date cannot be empty.'
+    errorMessage.setAttribute('class', 'error-message')
     return false;
   }
   return true;

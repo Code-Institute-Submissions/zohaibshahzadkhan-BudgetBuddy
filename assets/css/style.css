@@ -156,3 +156,11 @@ main {
     font-weight: 600;
     font-size: 1.6rem;
 }
+
+.error-message {
+    color: #fa2d4c;
+    padding-top: 1%;
+    font-style: italic;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
