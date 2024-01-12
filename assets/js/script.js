@@ -8,6 +8,11 @@ const startFilterDate = document.getElementById('startFilterDate')
 const endFilterDate = document.getElementById('endFilterDate')
 const searchButton = document.getElementById('search-button')
 const filterErrorMessage = document.getElementById('filter-error-message')
+const editExpenseAmount = document.getElementById('editExpenseAmount');
+const editExpenseDate = document.getElementById('editExpenseDate');
+const editExpenseType = document.getElementById('editExpenseType');
+const editPanelErrorMessage = document.getElementById('editPanelErrorMessage');
+const editModal = document.getElementById('edit-modal')
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -88,7 +93,7 @@ function displayExpenses(expensesToShow = null) {
     const editButton = document.createElement('button')
     editButton.textContent = 'Edit'
     editButton.setAttribute('id', 'edit-button')
-    // ToDo: add click handler for edit button
+    editButton.onclick = () => openEditModal(index);
     const removeButton = document.createElement('button')
     removeButton.textContent = 'Remove'
     removeButton.setAttribute('id', 'remove-button')
@@ -160,4 +165,46 @@ function removeExpense(index) {
   expenses.splice(index, 1);
   saveExpenses(expenses);
   displayExpenses();
+}
+
+/**
+ * Opens a modal for editing the selected expense.
+ * @param {number} index - The index of the expense to be edited.
+ */
+function openEditModal(index) {
+  const expenses = getExpenses();
+  editExpenseAmount.value = expenses[index].amount;
+  editExpenseDate.value = expenses[index].date;
+  editExpenseType.value = expenses[index].type;
+  editModal.style.display = 'block';
+  // set data-index attribute to modal which will used as a reference at time of updating expense
+  editModal.setAttribute('data-index', index);
+}
+
+/**
+ * Saves the edited expense after modification.
+ */
+function saveEditedExpense() {
+  const index = document.getElementById('edit-modal').getAttribute('data-index');
+  const expenses = getExpenses();
+  if (editExpenseAmount.value !== '') {
+    editPanelErrorMessage.textContent = ''
+    expenses[index].amount = editExpenseAmount.value;
+    expenses[index].date = editExpenseDate.value;
+    expenses[index].type = editExpenseType.value;
+    saveExpenses(expenses);
+    displayExpenses();
+    closeModal();
+  } else {
+    editPanelErrorMessage.textContent = "Please enter valid amount"
+    editPanelErrorMessage.setAttribute('class', 'error-message')
+  }
+}
+
+/**
+ * Closes the edit modal without saving changes.
+ */
+function closeModal() {
+  editModal.style.display = 'none';
+  editModal.removeAttribute('data-index');
 }

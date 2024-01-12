@@ -30,6 +30,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 100px;
 }
 
 input[type="number"],
@@ -163,4 +164,56 @@ main {
     font-style: italic;
     font-size: 1.4rem;
     font-weight: 400;
+}
+
+/* Edit Expense Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 330px;
+    border: 2px solid #52525b;
+    background-color: #222222;
+
+}
+
+.modal-content {
+    padding: 5%;
+    border-radius: 8px;
+}
+
+#edit-input-panel {
+    margin-top: 4%;
+}
+
+#edit-input-panel>label {
+    padding-top: 10px;
+    padding-right: 2%;
+    font-weight: 500;
+}
+
+#edit-action-panel {
+    margin-top: 6%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#edit-action-panel>button:first-child {
+    background-color: #27a20e;
+}
+
+#edit-action-panel>button:first-child:hover {
+    background-color: #5ec24b;
+}
+
+
+#edit-action-panel>button:last-child {
+    background-color: #c81a40;
+}
+
+#edit-action-panel>button:last-child:hover {
+    background-color: #da385b;
 }
