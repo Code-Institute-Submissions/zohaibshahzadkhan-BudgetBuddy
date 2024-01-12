@@ -32,6 +32,25 @@ button {
     cursor: pointer;
 }
 
+table {
+    width: 100%;
+    font-family: 'Alegreya Sans', sans-serif;
+    margin-top: 20px;
+    font-size: 1.4rem;
+}
+
+th,
+td {
+    border: 1px solid #52525b;
+    padding: 14px;
+    text-align: left;
+}
+
+th {
+    background-color: #3f3f46;
+    color: #fff;
+}
+
 /* Header*/
 header {
     width: 100%;
