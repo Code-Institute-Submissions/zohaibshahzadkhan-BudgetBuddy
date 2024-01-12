@@ -4,9 +4,15 @@ const expenseDate = document.getElementById('expenseDate')
 const errorMessage = document.getElementById('errorMessage')
 const expenseType = document.getElementById('expenseType')
 const addExpenseButton = document.getElementById('add-expense-button')
+const startFilterDate = document.getElementById('startFilterDate')
+const endFilterDate = document.getElementById('endFilterDate')
+const searchButton = document.getElementById('search-button')
+const filterErrorMessage = document.getElementById('filter-error-message')
+
 
 document.addEventListener('DOMContentLoaded', () => {
   addExpenseButton.addEventListener('click', addExpense)
+  searchButton.addEventListener('click', filterExpensesByDateRange)
   displayExpenses();
 })
 
@@ -39,7 +45,7 @@ function addExpense() {
   if (validateExpenseInput()) {
     // expenses array will hold list of expense object
     const expenses = getExpenses()
-    
+
     // create expense object for new expense
     const newExpense = {
       amount: expenseInput.value,
@@ -61,8 +67,8 @@ function addExpense() {
  * Displays the expenses in a table body on the HTML page.
  * @param {Array} [expenses] - Array of expense objects to display in the table.
  */
-function displayExpenses() {
-  const expenses = getExpenses();
+function displayExpenses(expensesToShow = null) {
+  const expenses = expensesToShow || getExpenses();
   const expenseTableBody = document.querySelector('#expenseTable tbody');
   // reset table body to avoid duplication of list 
   expenseTableBody.innerHTML = '';
@@ -109,4 +115,38 @@ function getExpenses() {
 function saveExpenses(expenses) {
   // store expenses values ([{},{}]) in expenses key
   localStorage.setItem('expenses', JSON.stringify(expenses));
+}
+
+/**
+ * Filters and displays expenses based on the selected date range.
+ */
+function filterExpensesByDateRange() {
+  filterErrorMessage.textContent = ''
+  if (validateStartAndEndDate()) {
+    // filter expense values that are either in between or equal to start and end date
+    const filteredExpenses = getExpenses().filter(expense => {
+      return expense.date >= startFilterDate.value && expense.date <= endFilterDate.value;
+    })
+    displayExpenses(filteredExpenses)
+  }
+}
+
+/**
+ * Validates the value of start and end date elements before performing a search.
+ * Add error message to errorMessage dom element if validation fails.
+ * @returns {boolean} True if the input is valid, otherwise return false.
+ */
+
+function validateStartAndEndDate() {
+  if (startFilterDate.value === '' || endFilterDate.value === '') {
+    filterErrorMessage.textContent = 'Please provide both start and end dates for filtering.';
+    filterErrorMessage.setAttribute('class', 'error-message')
+    return false;
+  }
+  if (startFilterDate.value > endFilterDate.value) {
+    filterErrorMessage.textContent = 'Invalid end date. Please provide valid end date';
+    filterErrorMessage.setAttribute('class', 'error-message')
+    return false;
+  }
+  return true;
 }
