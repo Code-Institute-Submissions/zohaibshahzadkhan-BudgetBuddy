@@ -7,6 +7,7 @@ const addExpenseButton = document.getElementById('add-expense-button')
 
 document.addEventListener('DOMContentLoaded', () => {
   addExpenseButton.addEventListener('click', addExpense)
+  displayExpenses();
 })
 
 /**
@@ -37,9 +38,8 @@ function addExpense() {
   errorMessage.textContent = '';
   if (validateExpenseInput()) {
     // expenses array will hold list of expense object
-    const expenses = []
-    // ToDo: get expenses from the local storage
-
+    const expenses = getExpenses()
+    
     // create expense object for new expense
     const newExpense = {
       amount: expenseInput.value,
@@ -47,8 +47,8 @@ function addExpense() {
       type: expenseType.value
     }
     expenses.push(newExpense);
-    // ToDo: save expenses to local storage
-    displayExpenses(expenses);
+    saveExpenses(expenses)
+    displayExpenses();
 
     // Reset element values
     expenseInput.value = '';
@@ -61,13 +61,14 @@ function addExpense() {
  * Displays the expenses in a table body on the HTML page.
  * @param {Array} [expenses] - Array of expense objects to display in the table.
  */
-function displayExpenses(expenses) {
-  // ToDo: get expanses from local storage
+function displayExpenses() {
+  const expenses = getExpenses();
   const expenseTableBody = document.querySelector('#expenseTable tbody');
+  // reset table body to avoid duplication of list 
+  expenseTableBody.innerHTML = '';
   expenses.forEach((expense, index) => {
     const row = expenseTableBody.insertRow();
-
-    // Add cells for expense details
+    // add cells for expense details
     const cellAmount = row.insertCell(0);
     const cellDate = row.insertCell(1);
     const cellType = row.insertCell(2);
@@ -77,7 +78,7 @@ function displayExpenses(expenses) {
     cellDate.textContent = expense.date;
     cellType.textContent = expense.type;
 
-    // Add buttons for actions (Edit and Remove)
+    // add buttons for actions (Edit and Remove)
     const editButton = document.createElement('button');
     editButton.textContent = 'Edit';
     editButton.setAttribute('id', 'edit-button')
@@ -89,4 +90,23 @@ function displayExpenses(expenses) {
     cellActions.appendChild(editButton);
     cellActions.appendChild(removeButton);
   });
+}
+
+/**
+ * Retrieves the list of expenses from local storage.
+ * @returns {Array} An array of expense objects.
+ */
+function getExpenses() {
+  // get items from local storage else set empty array
+  const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+  return expenses;
+}
+
+/**
+ * Saves the given array of expenses to local storage.
+ * @param {Array} expenses - An array of expense objects to be saved.
+ */
+function saveExpenses(expenses) {
+  // store expenses values ([{},{}]) in expenses key
+  localStorage.setItem('expenses', JSON.stringify(expenses));
 }
