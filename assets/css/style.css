@@ -69,7 +69,8 @@ main {
 }
 
 input[type="number"],
-input[type="date"] {
+input[type="date"],
+select {
     padding: 14px;
     margin-right: 20px;
     width: 20%;
