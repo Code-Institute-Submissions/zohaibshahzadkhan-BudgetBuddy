@@ -13,7 +13,7 @@ const filterErrorMessage = document.getElementById('filter-error-message')
 document.addEventListener('DOMContentLoaded', () => {
   addExpenseButton.addEventListener('click', addExpense)
   searchButton.addEventListener('click', filterExpensesByDateRange)
-  displayExpenses();
+  displayExpenses()
 })
 
 /**
@@ -26,22 +26,22 @@ function validateExpenseInput() {
   if (expenseInput.value.trim() === '') {
     errorMessage.textContent = 'Expense input cannot be empty.'
     errorMessage.setAttribute('class', 'error-message')
-    return false;
+    return false
   }
 
   if (expenseDate.value === '') {
     errorMessage.textContent = 'Expense date cannot be empty.'
     errorMessage.setAttribute('class', 'error-message')
-    return false;
+    return false
   }
-  return true;
+  return true
 }
 /**
  * Adds a new expense to the list, updates the display, and resets input fields.
  * Validates the expense input before adding.
  */
 function addExpense() {
-  errorMessage.textContent = '';
+  errorMessage.textContent = ''
   if (validateExpenseInput()) {
     // expenses array will hold list of expense object
     const expenses = getExpenses()
@@ -52,14 +52,14 @@ function addExpense() {
       date: expenseDate.value,
       type: expenseType.value
     }
-    expenses.push(newExpense);
+    expenses.push(newExpense)
     saveExpenses(expenses)
-    displayExpenses();
+    displayExpenses()
 
     // Reset element values
-    expenseInput.value = '';
-    expenseDate.value = '';
-    expenseType.value = 'Food & Dining';
+    expenseInput.value = ''
+    expenseDate.value = ''
+    expenseType.value = 'Food & Dining'
   }
 }
 
@@ -68,34 +68,34 @@ function addExpense() {
  * @param {Array} [expenses] - Array of expense objects to display in the table.
  */
 function displayExpenses(expensesToShow = null) {
-  const expenses = expensesToShow || getExpenses();
-  const expenseTableBody = document.querySelector('#expenseTable tbody');
+  const expenses = expensesToShow || getExpenses()
+  const expenseTableBody = document.querySelector('#expenseTable tbody')
   // reset table body to avoid duplication of list 
-  expenseTableBody.innerHTML = '';
+  expenseTableBody.innerHTML = ''
   expenses.forEach((expense, index) => {
-    const row = expenseTableBody.insertRow();
+    const row = expenseTableBody.insertRow()
     // add cells for expense details
-    const cellAmount = row.insertCell(0);
-    const cellDate = row.insertCell(1);
-    const cellType = row.insertCell(2);
-    const cellActions = row.insertCell(3);
+    const cellAmount = row.insertCell(0)
+    const cellDate = row.insertCell(1)
+    const cellType = row.insertCell(2)
+    const cellActions = row.insertCell(3)
 
-    cellAmount.textContent = expense.amount;
-    cellDate.textContent = expense.date;
-    cellType.textContent = expense.type;
+    cellAmount.textContent = expense.amount
+    cellDate.textContent = expense.date
+    cellType.textContent = expense.type
 
     // add buttons for actions (Edit and Remove)
-    const editButton = document.createElement('button');
-    editButton.textContent = 'Edit';
+    const editButton = document.createElement('button')
+    editButton.textContent = 'Edit'
     editButton.setAttribute('id', 'edit-button')
     // ToDo: add click handler for edit button
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
+    const removeButton = document.createElement('button')
+    removeButton.textContent = 'Remove'
     removeButton.setAttribute('id', 'remove-button')
-    // ToDo: add click handler for remove button
-    cellActions.appendChild(editButton);
-    cellActions.appendChild(removeButton);
-  });
+    removeButton.onclick = () => removeExpense(index);
+    cellActions.appendChild(editButton)
+    cellActions.appendChild(removeButton)
+  })
 }
 
 /**
@@ -104,8 +104,8 @@ function displayExpenses(expensesToShow = null) {
  */
 function getExpenses() {
   // get items from local storage else set empty array
-  const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-  return expenses;
+  const expenses = JSON.parse(localStorage.getItem('expenses')) || []
+  return expenses
 }
 
 /**
@@ -114,7 +114,7 @@ function getExpenses() {
  */
 function saveExpenses(expenses) {
   // store expenses values ([{},{}]) in expenses key
-  localStorage.setItem('expenses', JSON.stringify(expenses));
+  localStorage.setItem('expenses', JSON.stringify(expenses))
 }
 
 /**
@@ -125,7 +125,7 @@ function filterExpensesByDateRange() {
   if (validateStartAndEndDate()) {
     // filter expense values that are either in between or equal to start and end date
     const filteredExpenses = getExpenses().filter(expense => {
-      return expense.date >= startFilterDate.value && expense.date <= endFilterDate.value;
+      return expense.date >= startFilterDate.value && expense.date <= endFilterDate.value
     })
     displayExpenses(filteredExpenses)
   }
@@ -139,14 +139,25 @@ function filterExpensesByDateRange() {
 
 function validateStartAndEndDate() {
   if (startFilterDate.value === '' || endFilterDate.value === '') {
-    filterErrorMessage.textContent = 'Please provide both start and end dates for filtering.';
+    filterErrorMessage.textContent = 'Please provide both start and end dates for filtering.'
     filterErrorMessage.setAttribute('class', 'error-message')
-    return false;
+    return false
   }
   if (startFilterDate.value > endFilterDate.value) {
-    filterErrorMessage.textContent = 'Invalid end date. Please provide valid end date';
+    filterErrorMessage.textContent = 'Invalid end date. Please provide valid end date'
     filterErrorMessage.setAttribute('class', 'error-message')
-    return false;
+    return false
   }
-  return true;
+  return true
+}
+
+/**
+ * Removes the expense at the specified index.
+ * @param {number} index - The index of the expense to be removed.
+ */
+function removeExpense(index) {
+  const expenses = getExpenses();
+  expenses.splice(index, 1);
+  saveExpenses(expenses);
+  displayExpenses();
 }
