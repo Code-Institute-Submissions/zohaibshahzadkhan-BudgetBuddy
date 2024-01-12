@@ -17,7 +17,19 @@ body {
     background-color: #222222;
     color: #ffffff;
     padding: 0 2%;
+    font-size: 1.3rem;
     font-family: 'Alegreya Sans', sans-serif;
+}
+
+button {
+    margin-right: 20px;
+    padding: 12px;
+    font-size: 1.3rem;
+    color: #fff;
+    font-family: 'Alegreya Sans', sans-serif;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 /* Header*/
@@ -42,27 +54,58 @@ input[type="date"] {
     padding: 14px;
     margin-right: 20px;
     width: 20%;
-    border-radius:6px;
+    border-radius: 6px;
     font-size: 1rem;
     color: #222222;
 }
 
 #expense-container {
+    display: flex;
     margin-top: 1rem;
 }
 
 #add-expense-button {
-    padding: 14px;
-    font-size: 1.3rem;
     background-color: #27a20e;
-    color: #fff;
-    font-family: 'Alegreya Sans', sans-serif;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 #add-expense-button:hover {
     background-color: #5ec24b;
 }
 
+#search-container {
+    padding-top: 10px;
+}
+
+#search-container>span {
+    font-weight: 500;
+}
+
+#label {
+    display: flex;
+}
+
+#label>div {
+    width: 20%;
+    margin-right: 22px;
+    margin-top: 1rem;
+}
+
+#search-elements {
+    display: flex;
+}
+
+#search-button {
+    background-color: #3B82F6;
+}
+
+#search-button:hover {
+    background-color: #679cf0;
+}
+
+#summary-button {
+    background-color: #ac2ad0;
+}
+
+#summary-button:hover {
+    background-color: #ba52d7;
+}

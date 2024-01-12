@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta tags for search engines -->
@@ -28,6 +27,21 @@
             <input type="date" id="expenseDate">
             <button id="add-expense-button">Add Expense</button>
         </div>
+
+        <div id="search-container">
+            <span>Filter expenses by date</span>
+            <div id="label">
+                <div>Start Date</div>
+                <div>End Date</div>
+            </div>
+            <div id="search-elements">
+                <input type="date" id="expenseStartDate">
+                <input type="date" id="expenseEndDate">
+                <button id="search-button">Search</button>
+                <button id="summary-button">Generate Summary</button>
+            </div>
+        </div>
+
     </main>
     <script src="assets/js/script.js"></script>
 </body>
