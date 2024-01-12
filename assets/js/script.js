@@ -8,16 +8,21 @@ const startFilterDate = document.getElementById('startFilterDate')
 const endFilterDate = document.getElementById('endFilterDate')
 const searchButton = document.getElementById('search-button')
 const filterErrorMessage = document.getElementById('filter-error-message')
-const editExpenseAmount = document.getElementById('editExpenseAmount');
-const editExpenseDate = document.getElementById('editExpenseDate');
-const editExpenseType = document.getElementById('editExpenseType');
-const editPanelErrorMessage = document.getElementById('editPanelErrorMessage');
+const editExpenseAmount = document.getElementById('editExpenseAmount')
+const editExpenseDate = document.getElementById('editExpenseDate')
+const editExpenseType = document.getElementById('editExpenseType')
+const editPanelErrorMessage = document.getElementById('editPanelErrorMessage')
 const editModal = document.getElementById('edit-modal')
+const summaryButton = document.getElementById('summary-button')
+const summaryContainer = document.getElementById('summaryContainer')
+const summaryTableContainer = document.getElementById('summaryContainer');
+const summaryTableBody = document.querySelector('#summaryTable tbody');
 
 
 document.addEventListener('DOMContentLoaded', () => {
   addExpenseButton.addEventListener('click', addExpense)
   searchButton.addEventListener('click', filterExpensesByDateRange)
+  summaryButton.addEventListener('click', generateSummary)
   displayExpenses()
 })
 
@@ -28,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 
 function validateExpenseInput() {
-  if (expenseInput.value.trim() === '') {
+  if (expenseInput.value === '') {
     errorMessage.textContent = 'Expense input cannot be empty.'
     errorMessage.setAttribute('class', 'error-message')
     return false
@@ -85,7 +90,7 @@ function displayExpenses(expensesToShow = null) {
     const cellType = row.insertCell(2)
     const cellActions = row.insertCell(3)
 
-    cellAmount.textContent = expense.amount
+    cellAmount.textContent = `$${expense.amount}`
     cellDate.textContent = expense.date
     cellType.textContent = expense.type
 
@@ -207,4 +212,56 @@ function saveEditedExpense() {
 function closeModal() {
   editModal.style.display = 'none';
   editModal.removeAttribute('data-index');
+}
+
+/**
+ * Generates and displays a summary of total expenses by category for the selected date range.
+ */
+
+function generateSummary() {
+  if (validateStartAndEndDate()) {
+    debugger
+    filterErrorMessage.textContent = ''
+    const filteredExpenses = getExpenses().filter(expense => {
+      return expense.date >= startFilterDate.value && expense.date <= endFilterDate.value;
+    })
+    const summary = calculateCategorySummary(filteredExpenses);
+    displaySummary(summary);
+    // Show the summary container
+    summaryContainer.style.display = 'block';
+  }
+}
+
+/**
+ * Calculates the total expense amount by categories.
+ * @param {Array} expenses - An array of expense objects.
+ * @returns {Object} An object with expense categories as keys and total amounts as values.
+ */
+function calculateCategorySummary(expenses) {
+  const summary = {};
+
+  expenses.forEach(expense => {
+    const { type } = expense;
+    const key = type;
+    summary[key] = (summary[key] || 0) + parseFloat(expense.amount || 0); // Assuming each expense has an "amount" property
+  });
+  return summary;
+}
+
+/**
+ * Displays the summary on the HTML page.
+ * @param {Object} summary - An object with expense categories as keys and total amounts as values.
+ */
+function displaySummary(summary) {
+  summaryTableBody.innerHTML = '';
+  Object.keys(summary).forEach(key => {
+    const amount = summary[key];
+    const row = summaryTableBody.insertRow();
+    const cellType = row.insertCell(0);
+    const cellAmount = row.insertCell(1);
+    cellType.textContent = key;
+    cellAmount.textContent = `$${amount.toFixed(2)}`;
+  });
+  // Show the summary table container
+  summaryTableContainer.style.display = 'block';
 }
