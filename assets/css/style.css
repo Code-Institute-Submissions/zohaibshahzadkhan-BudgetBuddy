@@ -122,6 +122,22 @@ main {
     background-color: #679cf0;
 }
 
+#edit-button {
+    background-color: #3B82F6;
+}
+
+#edit-button:hover {
+    background-color: #679cf0;
+}
+
+#remove-button {
+    background-color: #c81a40;
+}
+
+#remove-button:hover {
+    background-color: #da385b;
+}
+
 #summary-button {
     background-color: #ac2ad0;
 }
@@ -135,7 +151,7 @@ main {
     display: none;
 }
 
-#summaryContainer > p {
+#summaryContainer>p {
     color: #4296F5;
     font-weight: 600;
     font-size: 1.6rem;
