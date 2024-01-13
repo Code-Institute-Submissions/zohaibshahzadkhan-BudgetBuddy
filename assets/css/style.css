@@ -216,3 +216,10 @@ main {
 #edit-action-panel>button:last-child:hover {
     background-color: #da385b;
 }
+
+#total-expanses {
+    margin-top: 20px;
+    color: #4296F5;
+    font-weight: 600;
+    font-size: 1.6rem;
+} 

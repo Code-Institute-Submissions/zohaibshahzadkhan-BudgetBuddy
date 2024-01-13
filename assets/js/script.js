@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   searchButton.addEventListener('click', filterExpensesByDateRange)
   summaryButton.addEventListener('click', generateSummary)
   displayExpenses()
+  calculateTotalExpense()
 })
 
 /**
@@ -65,6 +66,7 @@ function addExpense() {
     expenses.push(newExpense)
     saveExpenses(expenses)
     displayExpenses()
+    calculateTotalExpense()
 
     // Reset element values
     expenseInput.value = ''
@@ -138,6 +140,7 @@ function filterExpensesByDateRange() {
       return expense.date >= startFilterDate.value && expense.date <= endFilterDate.value
     })
     displayExpenses(filteredExpenses)
+    calculateTotalExpense(filteredExpenses)
   }
 }
 
@@ -170,6 +173,7 @@ function removeExpense(index) {
   expenses.splice(index, 1);
   saveExpenses(expenses);
   displayExpenses();
+  calculateTotalExpense()
 }
 
 /**
@@ -199,6 +203,7 @@ function saveEditedExpense() {
     expenses[index].type = editExpenseType.value;
     saveExpenses(expenses);
     displayExpenses();
+    calculateTotalExpense()
     closeModal();
   } else {
     editPanelErrorMessage.textContent = "Please enter valid amount"
@@ -264,4 +269,20 @@ function displaySummary(summary) {
   });
   // Show the summary table container
   summaryTableContainer.style.display = 'block';
+}
+
+/**
+ * Calculates and updates the total expense amount on the HTML page.
+ * @param {Array} [expensesToShow] - An optional array of expense objects to calculate the total from.
+ */
+function calculateTotalExpense(expensesToShow = null) {
+  const expenses = expensesToShow || getExpenses();
+  const totalExpense = document.getElementById('total-expense');
+  let total = 0;
+
+  expenses.forEach((expense) => {
+    total += parseFloat(expense.amount);
+  });
+
+  totalExpense.textContent = total.toFixed(2);
 }
