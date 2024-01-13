@@ -15,14 +15,15 @@ const editPanelErrorMessage = document.getElementById('editPanelErrorMessage')
 const editModal = document.getElementById('edit-modal')
 const summaryButton = document.getElementById('summary-button')
 const summaryContainer = document.getElementById('summaryContainer')
-const summaryTableContainer = document.getElementById('summaryContainer');
-const summaryTableBody = document.querySelector('#summaryTable tbody');
-
+const summaryTableContainer = document.getElementById('summaryContainer')
+const summaryTableBody = document.querySelector('#summaryTable tbody')
+const saveButton = document.getElementById('save-button')
 
 document.addEventListener('DOMContentLoaded', () => {
   addExpenseButton.addEventListener('click', addExpense)
   searchButton.addEventListener('click', filterExpensesByDateRange)
   summaryButton.addEventListener('click', generateSummary)
+  saveButton.addEventListener('click', saveEditedExpense)
   displayExpenses()
   calculateTotalExpense()
 })
@@ -225,7 +226,6 @@ function closeModal() {
 
 function generateSummary() {
   if (validateStartAndEndDate()) {
-    debugger
     filterErrorMessage.textContent = ''
     const filteredExpenses = getExpenses().filter(expense => {
       return expense.date >= startFilterDate.value && expense.date <= endFilterDate.value;
