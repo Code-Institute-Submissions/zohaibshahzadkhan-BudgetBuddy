@@ -131,10 +131,26 @@ In order to facilitate a systematic approach towards the implementation of user 
 8. **Input Validation and Error Display**
     
    Implements input validation to ensure accurate data entry and displays clear error messages to guide users in correcting any issues.
-   
+
    ![input validation](assets/media/features/validation-01.png)
    ![input validation](assets/media/features/validation-02.png)
    ![input validation](assets/media/features/validation-03.png)
    ![input validation](assets/media/features/validation-04.png)
    ![input validation](assets/media/features/validation-05.png)
+
+## Future Features
+Outline of Upcoming Features:
+
+1. **Dark and Light Theme Toggle**
+   - As a user, I want the option to toggle between dark and light themes in the app, allowing me to customize the interface based on my preferences.
+
+2. **Changing the Currency**
+   - As a user, I want the flexibility to change the currency for my expenses, ensuring that the displayed amounts align with my preferred currency.
+
+3. **Selecting an Expense Category**
+   - As a user, I want the ability to select a specific expense category to view only those expenses, providing a focused perspective on particular types of spending.
+  
+4. **Confirmation modal**
+   - As a user, I want to get the confirmation modal before removing an item.
+
 
