@@ -1,32 +1,32 @@
 
-const expenseInput = document.getElementById('expenseInput')
-const expenseDate = document.getElementById('expenseDate')
-const errorMessage = document.getElementById('errorMessage')
-const expenseType = document.getElementById('expenseType')
-const addExpenseButton = document.getElementById('add-expense-button')
-const startFilterDate = document.getElementById('startFilterDate')
-const endFilterDate = document.getElementById('endFilterDate')
-const searchButton = document.getElementById('search-button')
-const filterErrorMessage = document.getElementById('filter-error-message')
-const editExpenseAmount = document.getElementById('editExpenseAmount')
-const editExpenseDate = document.getElementById('editExpenseDate')
-const editExpenseType = document.getElementById('editExpenseType')
-const editPanelErrorMessage = document.getElementById('editPanelErrorMessage')
-const editModal = document.getElementById('edit-modal')
-const summaryButton = document.getElementById('summary-button')
-const summaryContainer = document.getElementById('summaryContainer')
-const summaryTableContainer = document.getElementById('summaryContainer')
-const summaryTableBody = document.querySelector('#summaryTable tbody')
-const saveButton = document.getElementById('save-button')
+const expenseInput = document.getElementById('expenseInput');
+const expenseDate = document.getElementById('expenseDate');
+const errorMessage = document.getElementById('errorMessage');
+const expenseType = document.getElementById('expenseType');
+const addExpenseButton = document.getElementById('add-expense-button');
+const startFilterDate = document.getElementById('startFilterDate');
+const endFilterDate = document.getElementById('endFilterDate');
+const searchButton = document.getElementById('search-button');
+const filterErrorMessage = document.getElementById('filter-error-message');
+const editExpenseAmount = document.getElementById('editExpenseAmount');
+const editExpenseDate = document.getElementById('editExpenseDate');
+const editExpenseType = document.getElementById('editExpenseType');
+const editPanelErrorMessage = document.getElementById('editPanelErrorMessage');
+const editModal = document.getElementById('edit-modal');
+const summaryButton = document.getElementById('summary-button');
+const summaryContainer = document.getElementById('summaryContainer');
+const summaryTableContainer = document.getElementById('summaryContainer');
+const summaryTableBody = document.querySelector('#summaryTable tbody');
+const saveButton = document.getElementById('save-button');
 
 document.addEventListener('DOMContentLoaded', () => {
-  addExpenseButton.addEventListener('click', addExpense)
-  searchButton.addEventListener('click', filterExpensesByDateRange)
-  summaryButton.addEventListener('click', generateSummary)
-  saveButton.addEventListener('click', saveEditedExpense)
-  displayExpenses()
-  calculateTotalExpense()
-})
+  addExpenseButton.addEventListener('click', addExpense);
+  searchButton.addEventListener('click', filterExpensesByDateRange);
+  summaryButton.addEventListener('click', generateSummary);
+  saveButton.addEventListener('click', saveEditedExpense);
+  displayExpenses();
+  calculateTotalExpense();
+});
 
 /**
  * Validates the expense input before adding a new expense.
@@ -36,43 +36,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function validateExpenseInput() {
   if (expenseInput.value === '') {
-    errorMessage.textContent = 'Expense input cannot be empty.'
-    errorMessage.setAttribute('class', 'error-message')
-    return false
+    errorMessage.textContent = 'Expense input cannot be empty.';
+    errorMessage.setAttribute('class', 'error-message');
+    return false;
   }
 
   if (expenseDate.value === '') {
-    errorMessage.textContent = 'Expense date cannot be empty.'
-    errorMessage.setAttribute('class', 'error-message')
-    return false
+    errorMessage.textContent = 'Expense date cannot be empty.';
+    errorMessage.setAttribute('class', 'error-message');
+    return false;
   }
-  return true
+  return true;
 }
 /**
  * Adds a new expense to the list, updates the display, and resets input fields.
  * Validates the expense input before adding.
  */
 function addExpense() {
-  errorMessage.textContent = ''
+  errorMessage.textContent = '';
   if (validateExpenseInput()) {
     // expenses array will hold list of expense object
-    const expenses = getExpenses()
+    const expenses = getExpenses();
 
     // create expense object for new expense
     const newExpense = {
       amount: expenseInput.value,
       date: expenseDate.value,
       type: expenseType.value
-    }
-    expenses.push(newExpense)
-    saveExpenses(expenses)
-    displayExpenses()
-    calculateTotalExpense()
+    };
+    expenses.push(newExpense);
+    saveExpenses(expenses);
+    displayExpenses();
+    calculateTotalExpense();
 
     // Reset element values
-    expenseInput.value = ''
-    expenseDate.value = ''
-    expenseType.value = 'Food & Dining'
+    expenseInput.value = '';
+    expenseDate.value = '';
+    expenseType.value = 'Food & Dining';
   }
 }
 
@@ -81,34 +81,34 @@ function addExpense() {
  * @param {Array} [expenses] - Array of expense objects to display in the table.
  */
 function displayExpenses(expensesToShow = null) {
-  const expenses = expensesToShow || getExpenses()
-  const expenseTableBody = document.querySelector('#expenseTable tbody')
+  const expenses = expensesToShow || getExpenses();
+  const expenseTableBody = document.querySelector('#expenseTable tbody');
   // reset table body to avoid duplication of list 
-  expenseTableBody.innerHTML = ''
+  expenseTableBody.innerHTML = '';
   expenses.forEach((expense, index) => {
-    const row = expenseTableBody.insertRow()
+    const row = expenseTableBody.insertRow();
     // add cells for expense details
-    const cellAmount = row.insertCell(0)
-    const cellDate = row.insertCell(1)
-    const cellType = row.insertCell(2)
-    const cellActions = row.insertCell(3)
+    const cellAmount = row.insertCell(0);
+    const cellDate = row.insertCell(1);
+    const cellType = row.insertCell(2);
+    const cellActions = row.insertCell(3);
 
-    cellAmount.textContent = `$${expense.amount}`
-    cellDate.textContent = expense.date
-    cellType.textContent = expense.type
+    cellAmount.textContent = `$${expense.amount}`;
+    cellDate.textContent = expense.date;
+    cellType.textContent = expense.type;
 
     // add buttons for actions (Edit and Remove)
-    const editButton = document.createElement('button')
-    editButton.textContent = 'Edit'
-    editButton.setAttribute('id', 'edit-button')
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+    editButton.setAttribute('id', 'edit-button');
     editButton.onclick = () => openEditModal(index);
-    const removeButton = document.createElement('button')
-    removeButton.textContent = 'Remove'
-    removeButton.setAttribute('id', 'remove-button')
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.setAttribute('id', 'remove-button');
     removeButton.onclick = () => removeExpense(index);
-    cellActions.appendChild(editButton)
-    cellActions.appendChild(removeButton)
-  })
+    cellActions.appendChild(editButton);
+    cellActions.appendChild(removeButton);
+  });
 }
 
 /**
@@ -117,8 +117,8 @@ function displayExpenses(expensesToShow = null) {
  */
 function getExpenses() {
   // get items from local storage else set empty array
-  const expenses = JSON.parse(localStorage.getItem('expenses')) || []
-  return expenses
+  const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+  return expenses;
 }
 
 /**
@@ -127,21 +127,21 @@ function getExpenses() {
  */
 function saveExpenses(expenses) {
   // store expenses values ([{},{}]) in expenses key
-  localStorage.setItem('expenses', JSON.stringify(expenses))
+  localStorage.setItem('expenses', JSON.stringify(expenses));
 }
 
 /**
  * Filters and displays expenses based on the selected date range.
  */
 function filterExpensesByDateRange() {
-  filterErrorMessage.textContent = ''
+  filterErrorMessage.textContent = '';
   if (validateStartAndEndDate()) {
     // filter expense values that are either in between or equal to start and end date
     const filteredExpenses = getExpenses().filter(expense => {
-      return expense.date >= startFilterDate.value && expense.date <= endFilterDate.value
-    })
-    displayExpenses(filteredExpenses)
-    calculateTotalExpense(filteredExpenses)
+      return expense.date >= startFilterDate.value && expense.date <= endFilterDate.value;
+    });
+    displayExpenses(filteredExpenses);
+    calculateTotalExpense(filteredExpenses);
   }
 }
 
@@ -153,16 +153,16 @@ function filterExpensesByDateRange() {
 
 function validateStartAndEndDate() {
   if (startFilterDate.value === '' || endFilterDate.value === '') {
-    filterErrorMessage.textContent = 'Please provide both start and end dates for filtering.'
-    filterErrorMessage.setAttribute('class', 'error-message')
-    return false
+    filterErrorMessage.textContent = 'Please provide both start and end dates for filtering.';
+    filterErrorMessage.setAttribute('class', 'error-message');
+    return false;
   }
   if (startFilterDate.value > endFilterDate.value) {
-    filterErrorMessage.textContent = 'Invalid end date. Please provide valid end date'
-    filterErrorMessage.setAttribute('class', 'error-message')
-    return false
+    filterErrorMessage.textContent = 'Invalid end date. Please provide valid end date';
+    filterErrorMessage.setAttribute('class', 'error-message');
+    return false;
   }
-  return true
+  return true;
 }
 
 /**
@@ -174,7 +174,7 @@ function removeExpense(index) {
   expenses.splice(index, 1);
   saveExpenses(expenses);
   displayExpenses();
-  calculateTotalExpense()
+  calculateTotalExpense();
 }
 
 /**
@@ -198,17 +198,17 @@ function saveEditedExpense() {
   const index = document.getElementById('edit-modal').getAttribute('data-index');
   const expenses = getExpenses();
   if (editExpenseAmount.value !== '') {
-    editPanelErrorMessage.textContent = ''
+    editPanelErrorMessage.textContent = '';
     expenses[index].amount = editExpenseAmount.value;
     expenses[index].date = editExpenseDate.value;
     expenses[index].type = editExpenseType.value;
     saveExpenses(expenses);
     displayExpenses();
-    calculateTotalExpense()
+    calculateTotalExpense();
     closeModal();
   } else {
-    editPanelErrorMessage.textContent = "Please enter valid amount"
-    editPanelErrorMessage.setAttribute('class', 'error-message')
+    editPanelErrorMessage.textContent = "Please enter valid amount";
+    editPanelErrorMessage.setAttribute('class', 'error-message');
   }
 }
 
@@ -226,10 +226,10 @@ function closeModal() {
 
 function generateSummary() {
   if (validateStartAndEndDate()) {
-    filterErrorMessage.textContent = ''
+    filterErrorMessage.textContent = '';
     const filteredExpenses = getExpenses().filter(expense => {
       return expense.date >= startFilterDate.value && expense.date <= endFilterDate.value;
-    })
+    });
     const summary = calculateCategorySummary(filteredExpenses);
     displaySummary(summary);
     // Show the summary container
