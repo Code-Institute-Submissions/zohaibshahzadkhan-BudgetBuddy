@@ -233,4 +233,40 @@ The layout of the Edit modal breaks on mobile devices.
 #### Proposed Solution: 
 To address this issue add media query for following screen size and adjust flex-box properties.
 
+## Deployment
+
+ This website was deployed on GitHub Pages through the following steps:
+
+- Navigate to **Settings** from the GitHub repository.
+- In the left-hand navigation, select **Pages**.
+- In the source section drop-down menu, change the branch from **none** to **main**, and click **Save**.
+- After a few minutes, the website goes live and automatically refreshes with each Git push command.
+
+You can access the live site [here](https://zohaibshahzadkhan.github.io/BudgetBuddy/).
+
+To run it locally:
+
+- Log into GitHub and click on the repository to download ([BudgetBuddy](https://github.com/zohaibshahzadkhan/BudgetBuddy)).
+- Select **Code** and click "Download ZIP file."
+- Once the download is complete, extract the ZIP file and use it in your local environment.
+
+Alternatively, you can **Clone** or **Fork** this repository into your GitHub account.
+
+### Forking
+
+1. Visit the [zohaibshahzadkhan/BudgetBuddy](https://github.com/zohaibshahzadkhan/BudgetBuddy) repository on GitHub.
+2. Click on the "Fork" button located in the top-right corner of the page.
+3. By default, forks share the same name as their parent repositories; however, you can modify the fork's name for clarity.
+4. Provide a brief description for your fork.
+5. Select "Create fork" to complete the process.
+
+### Cloning
+
+1. Visit the [zohaibshahzadkhan/BudgetBuddy](https://github.com/zohaibshahzadkhan/BudgetBuddy) repository on GitHub.
+2. Locate the 'Code' button above the list of files in your forked repository.
+3. Copy the repository URL.
+4. Open your terminal and navigate to the desired directory for the cloned repository.
+5. Type 'git clone' followed by pasting the URL.
+6. Press Enter to initiate the cloning process.
+
 
