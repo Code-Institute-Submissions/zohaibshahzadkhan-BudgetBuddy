@@ -71,21 +71,70 @@ Experience the magic of the live site by simply clicking right here - <a href="h
 
 In order to facilitate a systematic approach towards the implementation of user needs and goals throughout the web development process, the selected designs have been strategically mapped with relevant user story numbers. This carefully designed integration shall provide for a user oriented design, which complies with the identified requirements set out in each user story.
 
-| Add Expense | Mapped to user story |
-| :--------------------- | :------------------: |
-![App showing Add expense](assets/media/wireframes/total-expense.png) | <b>(1, 4, 5, 6, 8, 9)</b>
+| Add Expense                                                           |   Mapped to user story    |
+| :-------------------------------------------------------------------- | :-----------------------: |
+| ![App showing Add expense](assets/media/wireframes/total-expense.png) | <b>(1, 4, 5, 6, 8, 9)</b> |
 
-| update Expense | Mapped to user story |
-| :--------------------- | :------------------: |
-![App showing Update expense](assets/media/wireframes/edit-modal.png) | <b>(2, 3, 4, 8, 9)</b>
+| update Expense                                                        |  Mapped to user story  |
+| :-------------------------------------------------------------------- | :--------------------: |
+| ![App showing Update expense](assets/media/wireframes/edit-modal.png) | <b>(2, 3, 4, 8, 9)</b> |
 
-| Summary | Mapped to user story |
-| :--------------------- | :------------------: |
-![App showing Summary of expense ](assets/media/wireframes/summary.png) | <b>(7)</b>
+| Summary                                                                 | Mapped to user story |
+| :---------------------------------------------------------------------- | :------------------: |
+| ![App showing Summary of expense ](assets/media/wireframes/summary.png) |      <b>(7)</b>      |
 
+## Features
 
+1. **Adding an Expense**
+   
+   Allows users to input new expenses with details such as a description, date, and expense category.
 
+   ![expense panel](assets/media/features/add-expense.png)
 
+2. **Editing an Expense**
+   
+   Enables users to modify existing expenses, including updating the description, date, and category.
 
+    ![edit button](assets/media/features/edit-01.png)
+    ![edit modal ](assets/media/features/edit-02.png)
 
+3. **Removing an Expense**
+   
+   Provides users with the ability to delete expenses from the list, offering flexibility in managing recorded data.
+
+   ![remove button](assets/media/features/edit-01.png)
+   
+4. **Saving Expenses in Local Storage**
+   
+   Persists entered expenses in the local storage, ensuring data remains intact even after closing or reloading the app.
+
+   ![local storage ](assets/media/features/local-storage.png)
+
+5. **Filtering Expenses by Start and End Date**
+   
+   Allows users to filter expenses based on a specified start and end date range, facilitating analysis for specific time periods.
+
+   ![filter expense inputs ](assets/media/features/filter-expense.png)
+
+6. **Calculating Total Sum of User Expenses**
+   
+   Automatically computes and displays the total sum of user expenses, offering a quick overview of overall spending.
+
+   ![total Sum ](assets/media/features/total-sum.png)
+
+7. **Generating Summary of Total Expenses by Categories**
+   
+   Generates a summarized view of total expenses categorized by expense types, providing insights into spending patterns.
+   
+   ![Summary](assets/media/features/summary.png)
+
+8. **Input Validation and Error Display**
+    
+   Implements input validation to ensure accurate data entry and displays clear error messages to guide users in correcting any issues.
+   
+   ![input validation](assets/media/features/validation-01.png)
+   ![input validation](assets/media/features/validation-02.png)
+   ![input validation](assets/media/features/validation-03.png)
+   ![input validation](assets/media/features/validation-04.png)
+   ![input validation](assets/media/features/validation-05.png)
 
