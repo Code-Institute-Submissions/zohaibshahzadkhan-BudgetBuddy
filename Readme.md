@@ -62,3 +62,14 @@ Experience the magic of the live site by simply clicking right here - <a href="h
 
 8.  **Updating Total Sum when Filtering Expenses by Date Range:**
     - As a user, I want to filter my expenses by selecting a date range, helping me analyze my spending for specific time intervals.
+
+9.  **Input Validation and Error Display:**
+    - As a meticulous user who values accurate and error-free data entry, I want the Expense Tracker app to perform input validation to ensure that the information entered is valid and, in cases of errors, provide clear and descriptive error messages.
+
+
+
+
+
+
+
+
