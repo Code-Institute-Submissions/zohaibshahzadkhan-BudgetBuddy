@@ -162,7 +162,7 @@ Outline of Upcoming Features:
 [index.html validator link ](https://validator.w3.org/nu/?doc=https%3A%2F%2Fzohaibshahzadkhan.github.io%2FBudgetBuddy%2F)
 
 #### CSS Validation
-![W3C CSS validation testing](assets/media/test-evidence/style-css.png)
+![W3C CSS validation testing](assets/media/test-evidence/stylesheet-validation.png)
 [css validator link ](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fzohaibshahzadkhan.github.io%2FBudgetBuddy%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 #### JS Validation Metrics
