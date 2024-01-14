@@ -153,4 +153,41 @@ Outline of Upcoming Features:
 4. **Confirmation modal**
    - As a user, I want to get the confirmation modal before removing an item.
 
+## Testing 
 
+### Validator Testing
+
+#### HTML Validation
+![W3C markup validation testing](assets/media/test-evidence/html-validation.png)
+[index.html validator link ](https://validator.w3.org/nu/?doc=https%3A%2F%2Fzohaibshahzadkhan.github.io%2FBudgetBuddy%2F)
+
+#### CSS Validation
+![W3C CSS validation testing](assets/media/test-evidence/style-css.png)
+[css validator link ](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fzohaibshahzadkhan.github.io%2FBudgetBuddy%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+#### JS Validation Metrics
+No errors were found when passing through the official Jshint validator
+The following metrics were returned:
+
+-  There are 24 functions in this file.
+-  Function with the largest signature take 2 arguments, while the median is 1.
+-  Largest function has 18 statements in it, while the median is 4.5.
+-  The most complex function has a cyclomatic complexity value of 4 while the median is 1.5.
+
+
+
+### Accessibility Testing
+
+To assess the colors and fonts, I utilized Lighthouse within Google DevTools. The outcomes are presented below:
+
+![Lighthouse result index page](./assets/media/test-evidence/lighthouse-report.png)
+
+## Browser Testing
+
+**Layout:** Testing layout and appearance of site for consistency throughout browsers.
+
+**Functionality:** Ensuring all links, navigation and form submit functions as expected throughout browsers.
+
+| Browser | Layout | Functionality |
+| :-----: | :----: | :-----------: |
+| Chrome  |   ✔    |       ✔       |
