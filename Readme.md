@@ -269,4 +269,21 @@ Alternatively, you can **Clone** or **Fork** this repository into your GitHub ac
 5. Type 'git clone' followed by pasting the URL.
 6. Press Enter to initiate the cloning process.
 
+## Credits
 
+### Media
+
+Favicon images were downloaded from the following site:
+- [Icons8](https://icons8.com/icons/set/dollar)
+
+
+### Content
+Fonts were taken from
+- [Google fonts](https://fonts.google.com/)
+  
+### wireframe
+Wireframes are created using 
+- [Figma](https://www.figma.com/)
+
+Annotation on wireframes has been done by using 
+- [Stark](https://www.getstark.co/)
