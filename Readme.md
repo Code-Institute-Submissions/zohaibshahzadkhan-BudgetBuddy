@@ -67,6 +67,22 @@ Experience the magic of the live site by simply clicking right here - <a href="h
     - As a meticulous user who values accurate and error-free data entry, I want the Expense Tracker app to perform input validation to ensure that the information entered is valid and, in cases of errors, provide clear and descriptive error messages.
 
 
+## Wireframes
+
+In order to facilitate a systematic approach towards the implementation of user needs and goals throughout the web development process, the selected designs have been strategically mapped with relevant user story numbers. This carefully designed integration shall provide for a user oriented design, which complies with the identified requirements set out in each user story.
+
+| Add Expense | Mapped to user story |
+| :--------------------- | :------------------: |
+![App showing Add expense](assets/media/wireframes/total-expense.png) | <b>(1, 4, 5, 6, 8, 9)</b>
+
+| update Expense | Mapped to user story |
+| :--------------------- | :------------------: |
+![App showing Update expense](assets/media/wireframes/edit-modal.png) | <b>(2, 3, 4, 8, 9)</b>
+
+| Summary | Mapped to user story |
+| :--------------------- | :------------------: |
+![App showing Summary of expense ](assets/media/wireframes/summary.png) | <b>(7)</b>
+
 
 
 
