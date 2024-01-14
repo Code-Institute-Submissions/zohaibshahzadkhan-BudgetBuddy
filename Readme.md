@@ -222,4 +222,15 @@ To assess the colors and fonts, I utilized Lighthouse within Google DevTools. Th
 
 This manual testing summary provides a detailed overview of the testing scenarios, ensuring the robustness and accuracy of the Expense Tracker app's functionalities.
 
+## Bugs
+
+### Title - Inconsistent Edit modal UI
+#### Description
+The layout of the Edit modal breaks on mobile devices.
+
+![edit modal bug](assets/media/bug.png)
+
+#### Proposed Solution: 
+To address this issue add media query for following screen size and adjust flex-box properties.
+
 
