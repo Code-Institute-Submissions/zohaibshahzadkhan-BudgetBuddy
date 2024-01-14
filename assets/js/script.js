@@ -1,23 +1,27 @@
 
-const expenseInput = document.getElementById('expenseInput');
-const expenseDate = document.getElementById('expenseDate');
-const errorMessage = document.getElementById('errorMessage');
-const expenseType = document.getElementById('expenseType');
-const addExpenseButton = document.getElementById('add-expense-button');
-const startFilterDate = document.getElementById('startFilterDate');
-const endFilterDate = document.getElementById('endFilterDate');
-const searchButton = document.getElementById('search-button');
-const filterErrorMessage = document.getElementById('filter-error-message');
-const editExpenseAmount = document.getElementById('editExpenseAmount');
-const editExpenseDate = document.getElementById('editExpenseDate');
-const editExpenseType = document.getElementById('editExpenseType');
-const editPanelErrorMessage = document.getElementById('editPanelErrorMessage');
-const editModal = document.getElementById('edit-modal');
-const summaryButton = document.getElementById('summary-button');
-const summaryContainer = document.getElementById('summaryContainer');
-const summaryTableContainer = document.getElementById('summaryContainer');
+const expenseInput = getElementById('expenseInput');
+const expenseDate = getElementById('expenseDate');
+const errorMessage = getElementById('errorMessage');
+const expenseType = getElementById('expenseType');
+const addExpenseButton = getElementById('add-expense-button');
+const startFilterDate = getElementById('startFilterDate');
+const endFilterDate = getElementById('endFilterDate');
+const searchButton = getElementById('search-button');
+const filterErrorMessage = getElementById('filter-error-message');
+const editExpenseAmount = getElementById('editExpenseAmount');
+const editExpenseDate = getElementById('editExpenseDate');
+const editExpenseType = getElementById('editExpenseType');
+const editPanelErrorMessage = getElementById('editPanelErrorMessage');
+const editModal = getElementById('edit-modal');
+const summaryButton = getElementById('summary-button');
+const summaryContainer = getElementById('summaryContainer');
+const summaryTableContainer = getElementById('summaryContainer');
 const summaryTableBody = document.querySelector('#summaryTable tbody');
-const saveButton = document.getElementById('save-button');
+const saveButton = getElementById('save-button');
+
+function getElementById(id) {
+  return document.getElementById(id);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   addExpenseButton.addEventListener('click', addExpense);
@@ -195,7 +199,7 @@ function openEditModal(index) {
  * Saves the edited expense after modification.
  */
 function saveEditedExpense() {
-  const index = document.getElementById('edit-modal').getAttribute('data-index');
+  const index = getElementById('edit-modal').getAttribute('data-index');
   const expenses = getExpenses();
   if (editExpenseAmount.value !== '') {
     editPanelErrorMessage.textContent = '';
@@ -277,7 +281,7 @@ function displaySummary(summary) {
  */
 function calculateTotalExpense(expensesToShow = null) {
   const expenses = expensesToShow || getExpenses();
-  const totalExpense = document.getElementById('total-expense');
+  const totalExpense = getElementById('total-expense');
   let total = 0;
 
   expenses.forEach((expense) => {
