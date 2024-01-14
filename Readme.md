@@ -36,3 +36,29 @@ Experience the magic of the live site by simply clicking right here - <a href="h
 
 10. **Expense-Conscious Consumers:**
     - People who prioritize financial responsibility and are conscious of their spending habits.
+
+## User Stories
+
+1. **Adding an Expense:**
+   - As a user, I want to add a new expense with details such as expense amount, date and expense category, so I can keep track of my spending.
+
+2. **Editing an Expense:**
+   - As a user, I want to edit an existing expense, including updating the expense amount, date, and category, to reflect any changes or corrections.
+
+3. **Removing an Expense:**
+   - As a user, I want to remove an expense from the list, providing me with the flexibility to manage my recorded expenses.
+
+4. **Saving Expenses in Local Storage:**
+   - As a user, I want my entered expenses to be saved in local storage, ensuring that my data persists even if I close or reload the app.
+
+5. **Filtering Expenses by Start and End Date:**
+   - As a user, I want to filter my expenses based on a specified start and end date range, allowing me to view expenses for a specific time period.
+
+6. **Calculating Total Sum of User Expenses:**
+   - As a user, I want the app to calculate and display the total sum of my expenses, giving me an overview of my overall spending.
+
+7. **Generating Summary of Total Expenses by Categories:**
+   - As a user, I want to generate a summary of my total expenses categorized by expense types, helping me understand where my money is going.
+
+8.  **Updating Total Sum when Filtering Expenses by Date Range:**
+    - As a user, I want to filter my expenses by selecting a date range, helping me analyze my spending for specific time intervals.
