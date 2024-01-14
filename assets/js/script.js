@@ -104,11 +104,11 @@ function displayExpenses(expensesToShow = null) {
     // add buttons for actions (Edit and Remove)
     const editButton = document.createElement('button');
     editButton.textContent = 'Edit';
-    editButton.setAttribute('id', 'edit-button');
+    editButton.setAttribute('class', 'edit-button');
     editButton.onclick = () => openEditModal(index);
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
-    removeButton.setAttribute('id', 'remove-button');
+    removeButton.setAttribute('class', 'remove-button');
     removeButton.onclick = () => removeExpense(index);
     cellActions.appendChild(editButton);
     cellActions.appendChild(removeButton);
