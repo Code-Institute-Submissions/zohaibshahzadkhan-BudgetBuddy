@@ -22,8 +22,8 @@ body {
 }
 
 button {
-    margin-right: 20px;
-    padding: 12px;
+    margin-left: 20px;
+    padding: 0px 6px;
     font-size: 1.6rem;
     color: #fff;
     font-family: 'Alegreya Sans', sans-serif;
@@ -86,6 +86,11 @@ main {
     margin-top: 1rem;
 }
 
+label {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
 #add-expense-button {
     background-color: #27a20e;
 }
@@ -95,11 +100,15 @@ main {
 }
 
 #search-container {
-    padding-top: 10px;
+    margin: 30px 0px;
 }
 
 #search-container>span {
-    font-weight: 500;
+    display: block;
+    padding: 20px 0px;
+    color: #4296F5;
+    font-weight: 600;
+    font-size: 1.6rem;
 }
 
 #label {
@@ -125,6 +134,8 @@ main {
 }
 
 .edit-button {
+    padding: 6px;
+    margin-bottom: 10px;
     background-color: #3B82F6;
 }
 
@@ -134,6 +145,7 @@ main {
 
 .remove-button {
     background-color: #c81a40;
+    padding: 6px;
 }
 
 .remove-button:hover {
@@ -223,4 +235,4 @@ main {
     color: #4296F5;
     font-weight: 600;
     font-size: 1.6rem;
-} 
+}

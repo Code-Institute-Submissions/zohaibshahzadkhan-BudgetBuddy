@@ -24,8 +24,11 @@
     <!-- Main Content-->
     <main>
         <div id="expense-container">
+            <label for="expenseInput" >Amount</label>
             <input type="number" id="expenseInput" placeholder="Enter expense" min="0">
+            <label for="expenseDate" >Date</label>
             <input type="date" id="expenseDate">
+            <label for="expenseType">Category</label>
             <select id="expenseType">
                 <option value="Food & Dining">Food & Dining</option>
                 <option value="Transportation">Transportation</option>
@@ -45,12 +48,10 @@
 
         <div id="search-container">
             <span>Filter expenses by date</span>
-            <div id="label">
-                <div>Start Date</div>
-                <div>End Date</div>
-            </div>
             <div id="search-elements">
+                <label for="startFilterDate"> Start Date</label>
                 <input type="date" id="startFilterDate">
+                <label for="endFilterDate">End Date</label>
                 <input type="date" id="endFilterDate">
                 <button id="search-button">Search</button>
                 <button id="summary-button">Generate Summary</button>
