@@ -3,7 +3,7 @@ Welcome to BudgetBuddy, your go-to solution for managing your finances effortles
 
 Experience the magic of the live site by simply clicking right here - <a href="https://zohaibshahzadkhan.github.io/BudgetBuddy/" target="_blank"> BudgetBuddy </a>
 
-![Responsive Mockup](assets/images/live-mockup.png)
+![Responsive Mockup](assets/images/live-mockups.png)
 
 ## Target Audience
 
@@ -226,12 +226,19 @@ This manual testing summary provides a detailed overview of the testing scenario
 
 ### Title - Inconsistent Edit modal UI
 #### Description
-The layout of the Edit modal breaks on mobile devices.
+The layout of the Edit modal breaks on smaller devices.
 
 ![edit modal bug](assets/media/bug.png)
 
-#### Proposed Solution: 
-To address this issue add media query for following screen size and adjust flex-box properties.
+#### Solution: 
+Add media quires and set width tp 100%
+
+### Title - Negative amount for an expense
+#### Description
+Currently negative values are allowed intentionally incase user got half amount refunded and would like to negative amount for there record keeping
+
+#### Solution: 
+In future restrict negative values by validating input value less than zero. 
 
 ## Deployment
 
