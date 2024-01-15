@@ -179,8 +179,8 @@ The following metrics were returned:
 ### Accessibility Testing
 
 To assess the colors and fonts, I utilized Lighthouse within Google DevTools. The outcomes are presented below:
+![lighthouse-report](https://github.com/zohaibshahzadkhan/BudgetBuddy/assets/16137261/c67cd957-8afd-4d0e-982e-92b9039dd02b)
 
-![Lighthouse result index page](./assets/media/test-evidence/lighthouse-report.png)
 
 ## Browser Testing
 
