@@ -38,8 +38,8 @@ input[type="number"],
 input[type="date"],
 select {
     padding: 14px;
-    margin-right: 20px;
     width: 20%;
+    margin-right: 20px;
     border-radius: 6px;
     font-size: 1rem;
     color: #222222;
@@ -115,12 +115,6 @@ label {
     display: flex;
 }
 
-#label>div {
-    width: 20%;
-    margin-right: 22px;
-    margin-top: 1rem;
-}
-
 #search-elements {
     display: flex;
 }
@@ -161,7 +155,7 @@ label {
 }
 
 #summaryContainer {
-    margin-top: 13px;
+    margin: 20px 0;
     display: none;
 }
 
@@ -186,7 +180,7 @@ label {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
+    width: 100%;
     border: 2px solid #52525b;
     background-color: #222222;
 
@@ -213,6 +207,10 @@ label {
     justify-content: flex-end;
 }
 
+#edit-action-panel>button {
+    padding: 6px;
+}
+
 #edit-action-panel>button:first-child {
     background-color: #27a20e;
 }
@@ -235,4 +233,78 @@ label {
     color: #4296F5;
     font-weight: 600;
     font-size: 1.6rem;
+}
+
+/* Media query: tablets and smaller (992px and down)*/
+@media screen and (max-width: 992px) {
+    #expense-container {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    #search-container {
+        width: 60%;
+        margin-left: 20%;
+        margin-bottom: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    input[type="number"],
+    input[type="date"],
+    select {
+        width: 100%;
+        margin-top: 2%;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 2%;
+        padding: 1%;
+        margin-left: 0px;
+    }
+
+    #search-elements {
+        flex-direction: column;
+    }
+
+    #filter-error-message,
+    #errorMessage,
+    #total-expanses,
+    #expenseTable,
+    #summaryContainer {
+        width: 60%;
+        margin-left: 20%;
+    }
+    
+    #edit-action-panel>button {
+        margin-right: 20px;
+        padding: 6px;
+    }
+}
+
+/* Media query: smaller screen and mobile (725px and down)*/
+
+@media screen and (max-width: 725px) {
+    #expense-container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #search-container {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 0px;
+    }
+
+    #filter-error-message,
+    #errorMessage,
+    #total-expanses,
+    #expenseTable {
+        width: 100%;
+        margin-left: 0;
+    }
 }
